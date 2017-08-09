@@ -1,0 +1,133 @@
+{
+  "name": "juvenile-arrests",
+  "datapackage_version": "1.0-beta.18",
+  "title": "Juvenile Arrests",
+  "description": "Juvenile Arrests reports the number and rate of arrests for juveniles under the age of 18, per type of crime.",
+  "version": "1.0",
+  "licenses": [{
+    "url": "http://opendatacommons.org/licenses/pddl/",
+    "name": "Open Data Commons Public Domain",
+    "version": "1.0",
+    "id": "odc-pddl"
+  }],
+  "sources": [{
+    "name": "ctdespp",
+    "web": ""
+  }],
+  "author":[{
+    "name": "Jenna Daly",
+    "email": "jdaly@ctdata.org",
+    "web": "http://ctdata.org"
+  }],
+  "contributor": [],
+  "resources": [{
+    "path": "data/data.csv",
+    "format": "csv",
+    "schema": {
+      "fields": [{
+          "name": "Town",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "FIPS",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "Year",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "Measure Type",
+          "type": "string",
+          "dimension": true
+        }, {
+          "name": "Variable",
+          "type": "string",
+          "dimension": true
+        }, {
+          "name": "Value",
+          "type": "number",
+          "dimension": false
+        }]
+      }
+    }
+  ],
+  "last_modified": "08/09/2017",
+  "ckan_extras": {
+    "full_description": {
+      "ckan_name": "Full Description",
+      "value": "<p> The Connecticut Department of Emergency Services and Public Protection (prior to 2011 called the Department of Public Safety) collects and reports crime data in the Uniform Crime Report (UCR) program. This data reports the number of arrests, and is collected and reported to the state by each agency monthly. The DESPP reports this collected data annually. CTData has aggregated agency data in two locations to create a uniform level of reporting. For the town of Putnam, the Municipal Police Department and Connecticut State Police agency data has been aggregated. For Groton, the data covering the Town of Groton, the City of Groton, and Groton Long Point have been aggregated. </p> <p> The UCR Defines the listed crimes as follows: <ul> <li><b>Aggravated Assault</b> &mdash; Attack by one person upon another to inflict severe bodily injury.</li> <li><b>Arson</b> &mdash; Willful or malicious burning or attempt to burn a structure, vehicle, property of another, etc.</li> <li><b>Burglary</b> &mdash; The unlawful entry of a structure, forcible and non-forcible, including attempts to do the same.</li> <li><b>Curfew</b> &mdash; Offenses relating to violation of local curfew or loitering ordinances where such laws exist.</li> <li><b>Disorderly Conduct</b> &mdash; Breach of the peace.</li> <li><b>Drugs</b> &mdash; Offenses relating to narcotic drugs, such as unlawful possession, sale, use, growing and manufacturing of narcotic drugs.</li> <li><b>DUI</b> &mdash; 'Driving Under the Influence'. Driving or operating any motor vehicle or common carrier while drunk or under the influence of liquor or narcotics.</li> <li><b>Embezzlement</b> &mdash; Misappropriation or misapplication of money or property entrusted to one’s care.</li> <li><b>Forgery</b> &mdash; Making, altering, uttering or possessing, with intent to defraud, anything false which is made to appear true. Includes attempts to do the same.</li> <li><b>Fraud</b> &mdash; Fraudulent conversion and obtaining money or property by false pretenses. Includes bad checks except forgeries and counterfeiting. Also includes larceny by bailee.</li> <li><b>Gambling</b> &mdash; Promoting, permitting or engaging in illegal gambling.</li> <li><b>Larceny</b> &mdash; The unlawful taking of property from the possession of another.</li> <li><b>Liquor Law Violation</b> &mdash; State or local liquor law violations, except drunkenness and driving under the influence.</li> <li><b>Motor Vehicle Theft</b> &mdash; The theft or attempted theft of a motor vehicle.</li> <li><b>Murder</b> &mdash; The willful killing of one human being by another.</li> <li><b>Negligent Manslaughter</b> &mdash; The killing of another person through gross negligence.</li> <li><b>Offense Against Family</b> &mdash; Nonsupport, neglect, desertion or abuse of family and children.</li> <li><b>Other</b> &mdash; All other violations of state or local laws, except crimes listed above and traffic violations.</li> <li><b>Prostitution</b> &mdash; Sex offenses of a commercialized nature and attempts, such as prostitution, keeping a bawdy house, procuring or transporting women for immoral purposes, etc.</li> <li><b>Rape</b> &mdash; The carnal knowledge of a female forcibly and against her will.</li> <li><b>Robbery</b> &mdash; Taking or attempting to take anything of value from the control of another person by force, threat of force or violence, or by putting the victim in fear.</li> <li><b>Runaway</b> &mdash; Limited to juveniles taken into protective custody as runaways under provisions of local statutes.</li> <li><b>Sexual Offense</b> &mdash; Statutory rape, offenses against chastity, common decency, morals and the like. Includes attempts to commit any of the above. This offense does not include Rape or Prostitution.</li> <li><b>Simple Assault</b> &mdash; Assaults which are not of an aggravated type.</li> <li><b>Stolen Property</b> &mdash; Offenses of buying, receiving, and possession of stolen property, as well as all attempts to commit any of these offenses.</li> <li><b>Vagrancy</b> &mdash; Vagabondage, begging, loitering, etc.</li> <l",
+      "type": "string"
+    },
+    "suppression": {
+      "ckan_name": "Suppression",
+      "value": "",
+      "type": "string"
+    },
+    "technical_notes": {
+      "ckan_name": "Technical Notes",
+      "value": "Technical notes for advanced users",
+      "type": "string"
+    },
+    "socrata": {
+      "ckan_name": "Socrata",
+      "value": "True",,
+      "type": "string"
+    },
+    "socrata_url": {
+      "ckan_name": "Socrata Dataset URL",
+      "value": "https://data.ct.gov/Public-Safety/Uniform-Crime-Reporting-System-Arrests-2015/r6vz-twt4",,
+      "type": "string"
+    },
+    "domain": {
+      "ckan_name": "Domain",
+      "value": "Safety",
+      "type": "string"
+    },
+    "subdomain": {
+      "ckan_name": "Subdomain",
+      "value": "Public Safety",
+      "type": "string"
+    },
+    "geography": {
+      "ckan_name": "Geography",
+      "value": "Town",
+      "type": "string",
+      "constraints": {"enum": ["Town", "County", "Town/County", "District", "Other"]}
+    },
+    "frequency": {
+      "ckan_name": "Frequency",
+      "value": "Annual",
+      "type": "string"
+    },
+    "years_in_catalog": {
+      "ckan_name": "Years in Catalog",
+      "value": [],
+      "type": "array"
+    },
+    "latest_year": {
+      "ckan_name": "Latest Year Available",
+      "value": "2015",
+      "type": "string"
+    },
+    "disabled_views": {
+      "ckan_name": "Disabled Views",
+      "value": [],
+      "type": "array",
+      "constraints": {"enum": ["map", "table", "bar", "line"]}
+    },
+    "units": {
+      "ckan_name": "Units",
+      "value": {
+        "Number": "",
+        "Percent": "%"
+      }
+    },
+    "default": {}
+  },
+  "spot_checks": [],
+  "dimension_groups": [
+    {"Measure Type": []},
+    {"Variable": []}
+  ]
+}
