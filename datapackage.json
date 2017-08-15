@@ -21,7 +21,7 @@
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/data.csv",
+    "path": "data/juvenile-arrests_2015.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -37,13 +37,59 @@
           "type": "string",
           "dimension": false
         }, {
+          "name": "Age Range",
+          "type": "string",
+          "dimension": true,
+          "constraints": {
+		        "enum": [
+		          "Total", 
+		          "0 to 9 years", 
+		          "10 to 14 years", 
+		          "15 to 17 years"
+            ]
+			    }
+        }, { 
+          "name": "Crime",
+          "type": "string",
+          "dimension": true,
+          "constraints": {
+		        "enum": [
+		          "Total", "Aggravated Assault", 
+		          "Arson", "Burglary", "Curfew", 
+		          "Disorderly Conduct", "Drugs", 
+		          "DUI", "Embezzlement", "Forgery", 
+		          "Fraud", "Gambling", "Larceny", 
+		          "Liquor Law Violation", 
+		          "Motor Vehicle Theft", "Murder", 
+		          "Negligent Manslaughter", 
+		          "Offense Against Family", 
+		          "Other Assault (Simple)", 
+		          "Other", "Prostitution", "Rape", 
+		          "Robbery", "Runaway", 
+		          "Sexual Offense", "Stolen Property", 
+		          "Vagrancy", "Vandalism", "Weapons"
+            ]
+			    }
+        }, {          
           "name": "Measure Type",
           "type": "string",
-          "dimension": true
+          "dimension": true,
+          "constraints": {
+		        "enum": [
+		          "Number", 
+		          "Rate (per 100,000)"
+		        ]
+			    }
         }, {
           "name": "Variable",
           "type": "string",
-          "dimension": true
+          "dimension": true,
+          "constraints": {
+		        "enum": [
+		          "Juvenile Arrests", 
+		          "Margins of Error"
+		        ]
+			    }
         }, {
           "name": "Value",
           "type": "number",
@@ -56,7 +102,7 @@
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
-      "value": "<p> The Connecticut Department of Emergency Services and Public Protection (prior to 2011 called the Department of Public Safety) collects and reports crime data in the Uniform Crime Report (UCR) program. This data reports the number of arrests, and is collected and reported to the state by each agency monthly. The DESPP reports this collected data annually. CTData has aggregated agency data in two locations to create a uniform level of reporting. For the town of Putnam, the Municipal Police Department and Connecticut State Police agency data has been aggregated. For Groton, the data covering the Town of Groton, the City of Groton, and Groton Long Point have been aggregated. </p> <p> The UCR Defines the listed crimes as follows: <ul> <li><b>Aggravated Assault</b> &mdash; Attack by one person upon another to inflict severe bodily injury.</li> <li><b>Arson</b> &mdash; Willful or malicious burning or attempt to burn a structure, vehicle, property of another, etc.</li> <li><b>Burglary</b> &mdash; The unlawful entry of a structure, forcible and non-forcible, including attempts to do the same.</li> <li><b>Curfew</b> &mdash; Offenses relating to violation of local curfew or loitering ordinances where such laws exist.</li> <li><b>Disorderly Conduct</b> &mdash; Breach of the peace.</li> <li><b>Drugs</b> &mdash; Offenses relating to narcotic drugs, such as unlawful possession, sale, use, growing and manufacturing of narcotic drugs.</li> <li><b>DUI</b> &mdash; 'Driving Under the Influence'. Driving or operating any motor vehicle or common carrier while drunk or under the influence of liquor or narcotics.</li> <li><b>Embezzlement</b> &mdash; Misappropriation or misapplication of money or property entrusted to one’s care.</li> <li><b>Forgery</b> &mdash; Making, altering, uttering or possessing, with intent to defraud, anything false which is made to appear true. Includes attempts to do the same.</li> <li><b>Fraud</b> &mdash; Fraudulent conversion and obtaining money or property by false pretenses. Includes bad checks except forgeries and counterfeiting. Also includes larceny by bailee.</li> <li><b>Gambling</b> &mdash; Promoting, permitting or engaging in illegal gambling.</li> <li><b>Larceny</b> &mdash; The unlawful taking of property from the possession of another.</li> <li><b>Liquor Law Violation</b> &mdash; State or local liquor law violations, except drunkenness and driving under the influence.</li> <li><b>Motor Vehicle Theft</b> &mdash; The theft or attempted theft of a motor vehicle.</li> <li><b>Murder</b> &mdash; The willful killing of one human being by another.</li> <li><b>Negligent Manslaughter</b> &mdash; The killing of another person through gross negligence.</li> <li><b>Offense Against Family</b> &mdash; Nonsupport, neglect, desertion or abuse of family and children.</li> <li><b>Other</b> &mdash; All other violations of state or local laws, except crimes listed above and traffic violations.</li> <li><b>Prostitution</b> &mdash; Sex offenses of a commercialized nature and attempts, such as prostitution, keeping a bawdy house, procuring or transporting women for immoral purposes, etc.</li> <li><b>Rape</b> &mdash; The carnal knowledge of a female forcibly and against her will.</li> <li><b>Robbery</b> &mdash; Taking or attempting to take anything of value from the control of another person by force, threat of force or violence, or by putting the victim in fear.</li> <li><b>Runaway</b> &mdash; Limited to juveniles taken into protective custody as runaways under provisions of local statutes.</li> <li><b>Sexual Offense</b> &mdash; Statutory rape, offenses against chastity, common decency, morals and the like. Includes attempts to commit any of the above. This offense does not include Rape or Prostitution.</li> <li><b>Simple Assault</b> &mdash; Assaults which are not of an aggravated type.</li> <li><b>Stolen Property</b> &mdash; Offenses of buying, receiving, and possession of stolen property, as well as all attempts to commit any of these offenses.</li> <li><b>Vagrancy</b> &mdash; Vagabondage, begging, loitering, etc.</li> <l",
+      "value": "<p> The Connecticut Department of Emergency Services and Public Protection (prior to 2011 called the Department of Public Safety) collects and reports crime data in the Uniform Crime Report (UCR) program. This data reports the number of arrests, and is collected and reported to the state by each agency monthly. The DESPP reports this collected data annually. CTData has aggregated agency data in two locations to create a uniform level of reporting. For the town of Putnam, the Municipal Police Department and Connecticut State Police agency data has been aggregated. For Groton, the data covering the Town of Groton, the City of Groton, and Groton Long Point have been aggregated. </p> <p> The UCR Defines the listed crimes as follows: <ul> <li><b>Aggravated Assault</b> &mdash; Attack by one person upon another to inflict severe bodily injury.</li> <li><b>Arson</b> &mdash; Willful or malicious burning or attempt to burn a structure, vehicle, property of another, etc.</li> <li><b>Burglary</b> &mdash; The unlawful entry of a structure, forcible and non-forcible, including attempts to do the same.</li> <li><b>Curfew</b> &mdash; Offenses relating to violation of local curfew or loitering ordinances where such laws exist.</li> <li><b>Disorderly Conduct</b> &mdash; Breach of the peace.</li> <li><b>Drugs</b> &mdash; Offenses relating to narcotic drugs, such as unlawful possession, sale, use, growing and manufacturing of narcotic drugs.</li> <li><b>DUI</b> &mdash; 'Driving Under the Influence'. Driving or operating any motor vehicle or common carrier while drunk or under the influence of liquor or narcotics.</li> <li><b>Embezzlement</b> &mdash; Misappropriation or misapplication of money or property entrusted to one’s care.</li> <li><b>Forgery</b> &mdash; Making, altering, uttering or possessing, with intent to defraud, anything false which is made to appear true. Includes attempts to do the same.</li> <li><b>Fraud</b> &mdash; Fraudulent conversion and obtaining money or property by false pretenses. Includes bad checks except forgeries and counterfeiting. Also includes larceny by bailee.</li> <li><b>Gambling</b> &mdash; Promoting, permitting or engaging in illegal gambling.</li> <li><b>Larceny</b> &mdash; The unlawful taking of property from the possession of another.</li> <li><b>Liquor Law Violation</b> &mdash; State or local liquor law violations, except drunkenness and driving under the influence.</li> <li><b>Motor Vehicle Theft</b> &mdash; The theft or attempted theft of a motor vehicle.</li> <li><b>Murder</b> &mdash; The willful killing of one human being by another.</li> <li><b>Negligent Manslaughter</b> &mdash; The killing of another person through gross negligence.</li> <li><b>Offense Against Family</b> &mdash; Nonsupport, neglect, desertion or abuse of family and children.</li> <li><b>Other</b> &mdash; All other violations of state or local laws, except crimes listed above and traffic violations.</li> <li><b>Prostitution</b> &mdash; Sex offenses of a commercialized nature and attempts, such as prostitution, keeping a bawdy house, procuring or transporting women for immoral purposes, etc.</li> <li><b>Rape</b> &mdash; The carnal knowledge of a female forcibly and against her will.</li> <li><b>Robbery</b> &mdash; Taking or attempting to take anything of value from the control of another person by force, threat of force or violence, or by putting the victim in fear.</li> <li><b>Runaway</b> &mdash; Limited to juveniles taken into protective custody as runaways under provisions of local statutes.</li> <li><b>Sexual Offense</b> &mdash; Statutory rape, offenses against chastity, common decency, morals and the like. Includes attempts to commit any of the above. This offense does not include Rape or Prostitution.</li> <li><b>Simple Assault</b> &mdash; Assaults which are not of an aggravated type.</li> <li><b>Stolen Property</b> &mdash; Offenses of buying, receiving, and possession of stolen property, as well as all attempts to commit any of these offenses.</li> <li><b>Vagrancy</b> &mdash; Vagabondage, begging, loitering, etc.</li> <li><b>Vagrancy</b> &mdash; Vagabondage, begging, loitering, etc.</li><li><b>Vandalism</b> &mdash; Willful or malicious destruction, injury, disfigurement, or defacement of property without consent of the owner or person having custody or control.</li><li><b>Weapons</b> &mdash; All attempted and committed violations of regulations or statutes controlling the carrying, using, possessing, furnishing, and manufacturing of deadly weapons or silencers.</li></ul></p><p>The denominators for these rates are derived from 5-Year ACS population figures. As such, the rate of arrests is given with a Margin of Error calculated from the Margin of Error present in the population data.</p>",
       "type": "string"
     },
     "suppression": {
@@ -66,17 +112,17 @@
     },
     "technical_notes": {
       "ckan_name": "Technical Notes",
-      "value": "Technical notes for advanced users",
+      "value": "",
       "type": "string"
     },
     "socrata": {
       "ckan_name": "Socrata",
-      "value": "True",,
+      "value": "True",
       "type": "string"
     },
     "socrata_url": {
       "ckan_name": "Socrata Dataset URL",
-      "value": "https://data.ct.gov/Public-Safety/Uniform-Crime-Reporting-System-Arrests-2015/r6vz-twt4",,
+      "value": "https://data.ct.gov/Public-Safety/Uniform-Crime-Reporting-System-Arrests-2015/r6vz-twt4",
       "type": "string"
     },
     "domain": {
@@ -102,7 +148,7 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": [],
+      "value": ["2010", "2011", "2012", "2013", "2014", "2015"],
       "type": "array"
     },
     "latest_year": {
@@ -123,11 +169,212 @@
         "Percent": "%"
       }
     },
-    "default": {}
+    "expected_number_of_geographies": {
+		  "ckan_name": "Expected Number of Unique Geographies",
+		  "value": 170,
+		  "type": "string"
+		},     
+    "default": {      
+      "ckan_name": "Default",
+			"value": {
+		 		"Town": "Connecticut",
+		 		"Year": ["2015"],
+		 		"Age Range": "Total", 
+		 		"Crime": "Total", 
+		 		"Variable": "Juvenile Arrests"
+			},
+		  	"type": "object"
+    } 
   },
-  "spot_checks": [],
-  "dimension_groups": [
-    {"Measure Type": []},
-    {"Variable": []}
-  ]
-}
+  "spot_checks": [
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Barkhamsted",
+        "Age Range": "Total",
+        "Year": "2010",
+        "Crime": "Other Assault (Simple)",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Number" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 1
+      } 
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Groton",
+        "Age Range": "10 to 14 years",
+        "Year": "2011",
+        "Crime": "Drugs",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Number" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 1
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "New Haven",
+        "Age Range": "10 to 14 years",
+        "Year": "2012",
+        "Crime": "Weapons",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Number" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 6
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Putnam",
+        "Age Range": "15 to 17 years",
+        "Year": "2013",
+        "Crime": "Other Assault (Simple)",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Number" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 11
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Windham",
+        "Age Range": "Total",
+        "Year": "2014",
+        "Crime": "Runaway",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Number" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 0
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Scotland",
+        "Age Range": "15 to 17 years",
+        "Year": "2015",
+        "Crime": "Vandalism",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Number" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 0
+      } 
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Wilton",
+        "Age Range": "Total",
+        "Year": "2010",
+        "Crime": "Total",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Rate (per 100,000)" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 707.14
+      } 
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Fairfield",
+        "Age Range": "15 to 17 years",
+        "Year": "2011",
+        "Crime": "Larceny",
+        "Variable": "Juvenile Arrests",
+        "Measure Type": "Rate (per 100,000)" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 868.25
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Connecticut",
+        "Age Range": "10 to 14 years",
+        "Year": "2014",
+        "Crime": "Vandalism",
+        "Variable": "Margins of Error",
+        "Measure Type": "Rate (per 100,000)" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 0.63
+      } 
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Hartford",
+        "Age Range": "0 to 9 years",
+        "Year": "2013",
+        "Crime": "Disorderly Conduct",
+        "Variable": "Margins of Error",
+        "Measure Type": "Rate (per 100,000)" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 1.07
+      } 
+    }
+  ],
+	"dimension_groups": [{
+		"Age Range": [
+			"Total", 
+		  "0 to 9 years", 
+		  "10 to 14 years", 
+		  "15 to 17 years"
+		], 
+		"Crime": [
+			"Total", "Aggravated Assault", 
+		  "Arson", "Burglary", "Curfew", 
+		  "Disorderly Conduct", "Drugs", 
+		  "DUI", "Embezzlement", "Forgery", 
+		  "Fraud", "Gambling", "Larceny", 
+		  "Liquor Law Violation", 
+		  "Motor Vehicle Theft", "Murder", 
+		  "Negligent Manslaughter", 
+		  "Offense Against Family", 
+		  "Other Assault (Simple)", 
+		  "Other", "Prostitution", "Rape", 
+		  "Robbery", "Runaway", 
+		  "Sexual Offense", "Stolen Property", 
+		  "Vagrancy", "Vandalism", "Weapons"
+		], 
+		"Measure Type": [
+		  "Number", 
+		  "Rate (per 100,000)", 
+		  "Rate (per 100,000)" 
+		]	
+	}]
+}   

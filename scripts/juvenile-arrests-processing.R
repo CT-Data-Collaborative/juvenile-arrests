@@ -25,8 +25,8 @@ for (i in 1:length(raw_data)) {
   names(current_file)[1] <- "Crime"
   #Remove rows without Ages
   current_file <- current_file[grepl("[0-9]", current_file$Crime),]
-  first_col <- current_file[2]
   last_col <- ncol(current_file)
+  #convert wide to long
   current_file_long <- gather(current_file, Indicator, Value, 2:last_col, factor_key=TRUE)
   #Assign Age column
   current_file_long$Age <- gsub("([a-zA-Z ]+)(<?[0-9+-]+$)", "\\2", current_file_long$Crime)
@@ -107,6 +107,7 @@ test_fips <- test_fips %>%
 
 test_fips <- unique(test_fips)
 
+#Create CT total for 2015
 CT_2015 <- test_fips[test_fips$Year == "2015",]
 
 CT_2015 <- CT_2015 %>% 

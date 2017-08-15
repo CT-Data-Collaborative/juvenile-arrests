@@ -1,7 +1,10 @@
 Juvenile Arrests
 
 [![Build Status](https://travis-ci.org/CT-Data-Collaborative/juvenile-arrests.svg?branch=master)](https://travis-ci.org/CT-Data-Collaborative/juvenile-arrests)
+
 Juvenile Arrests reports the number and rate of arrests for juveniles under the age of 18, per type of crime.
+
+Data Source: <https://data.ct.gov/Public-Safety/Uniform-Crime-Reporting-System-Arrests-2015/r6vz-twt4>
 
 ## License MIT
 
