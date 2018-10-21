@@ -20,14 +20,15 @@ raw_data <- dir(path_to_raw, recursive=T, pattern = "Crime")
 source('./scripts/getPopulation.R')
 
 juv_arrests <- data.frame(stringsAsFactors=F)
-for (i in 1:length(raw_data)) {
-  current_file <- read.csv(paste0(path_to_raw, "/", raw_data[i]), stringsAsFactors = F, header=T, check.names=F)
+# for (i in 1:length(raw_data)) {
+for (i in c(7)) {
+  current_filename <- paste0(path_to_raw, "/", raw_data[i])
+  current_file <- read.csv(current_filename, stringsAsFactors = F, header=T, check.names=F)
   names(current_file)[1] <- "Crime"
   #Remove rows without Ages
   current_file <- current_file[grepl("[0-9]", current_file$Crime),]
-  last_col <- ncol(current_file)
   #convert wide to long
-  current_file_long <- gather(current_file, Indicator, Value, 2:last_col, factor_key=TRUE)
+  current_file_long <- gather(current_file, Indicator, Value, 2:ncol(current_file), factor_key=TRUE)
   #Assign Age column
   current_file_long$Age <- gsub("([a-zA-Z ]+)(<?[0-9+-]+$)", "\\2", current_file_long$Crime)
   #Isolate juvenile ages
@@ -77,15 +78,17 @@ test$Indicator[which(grepl("Putnam", test$Indicator))] <- "Putnam"
 #Merge in FIPS (to remove non-towns)
 names(test)[names(test) == "Indicator"] <- "Town"
 
+#Manually inject datapkg dependency since the repo is deprecated
+source("./scripts/datapkg_read.R")
 #Merge in FIPS
 town_fips_dp_URL <- 'https://raw.githubusercontent.com/CT-Data-Collaborative/ct-town-list/master/datapackage.json'
+
 town_fips_dp <- datapkg_read(path = town_fips_dp_URL)
 fips <- (town_fips_dp$data[[1]])
-
 test_fips <- merge(test, fips, by = "Town", all.y=T)
 
 test_fips <- test_fips %>% 
-  group_by(Year, Age, Indicator, Crime) %>% 
+  group_by(Year, Age, Town, Crime) %>% 
   mutate(Value = sum(Value))
 
 test_fips <- unique(test_fips)
@@ -107,18 +110,18 @@ test_fips <- test_fips %>%
 
 test_fips <- unique(test_fips)
 
-#Create CT total for 2015
-CT_2015 <- test_fips[test_fips$Year == "2015",]
+#Create CT total for 2016
+CT_2016 <- test_fips[test_fips$Year == "2016",]
 
-CT_2015 <- CT_2015 %>% 
+CT_2016 <- CT_2016 %>% 
   group_by(Crime, `Age Range`) %>% 
   summarise(Value = sum(Value))
 
-CT_2015$Town <- "Connecticut"
-CT_2015$FIPS <- "09"
-CT_2015$Year <- 2015
+CT_2016$Town <- "Connecticut"
+CT_2016$FIPS <- "09"
+CT_2016$Year <- 2016
 
-test_fips <- rbind(test_fips, CT_2015)
+test_fips <- rbind(test_fips, CT_2016)
 
 #####################################################################################
 test_totals <- test_fips
@@ -225,7 +228,7 @@ juv_arrests_total <- juv_arrests_total %>%
 # Write to File
 write.table(
   juv_arrests_total,
-  file.path(getwd(), "data", "juvenile-arrests_2015.csv"),
+  file.path(getwd(), "data", "juvenile-arrests_2016.csv"),
   sep = ",",
   row.names = F,
   na = "-9999"

@@ -82,15 +82,15 @@ divide.acs <- function(num, den, method = "ratio", verbose = T) {
 getACSData <- function(geoObject, yearList, table) {
     data.list <- list()
     for (y in yearList) {
-        print(paste("Processing ACS year", y, sep=":"))
+        print(paste("Processing ACS year\n", y, sep=": "))
         # check if file exists for given year/table
         filename <- paste("ACS", (as.numeric(y)-2000), "5YR", table, "with", "ann.csv", sep = "_")
         rawFile <- file.path(getwd(), "raw", filename)
         if (file.exists(rawFile)) {
-            print("Found raw file")
+            printf("Found raw file %s\n", filename)
             data <- read.acs(rawFile, endyear = y, geocols = 1:3)
         } else {
-            print("No raw file - Using API")
+            printf("No raw file called %s - Using API\n", filename)
             # if not, fetch from API
             data <- acs.fetch(geography=geoObject, endyear=y, table.number=table, col.names="pretty")
         }
@@ -186,3 +186,5 @@ append.table <- function(data, file, ...) {
         )
     }
 }
+
+printf <- function(...) cat(sprintf(...))
