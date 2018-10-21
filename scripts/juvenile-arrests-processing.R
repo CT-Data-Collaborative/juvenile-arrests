@@ -1,5 +1,4 @@
 library(dplyr)
-library(datapkg)
 library(tidyr)
 
 ##################################################################
@@ -7,6 +6,7 @@ library(tidyr)
 # Processing Script for Juvenile Arrests
 # Created by Jenna Daly
 # On 08/09/2017
+# Updated on 10/22/2018
 #
 ##################################################################
 
@@ -20,8 +20,7 @@ raw_data <- dir(path_to_raw, recursive=T, pattern = "Crime")
 source('./scripts/getPopulation.R')
 
 juv_arrests <- data.frame(stringsAsFactors=F)
-# for (i in 1:length(raw_data)) {
-for (i in c(7)) {
+for (i in 1:length(raw_data)) {
   current_filename <- paste0(path_to_raw, "/", raw_data[i])
   current_file <- read.csv(current_filename, stringsAsFactors = F, header=T, check.names=F)
   names(current_file)[1] <- "Crime"

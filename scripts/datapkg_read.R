@@ -24,6 +24,7 @@
 #'
 #' # Read over http
 #' euribor <- datapkg_read("https://raw.githubusercontent.com/datasets/euribor/master")
+library(readr)
 datapkg_read <- function(path = getwd()){
   root <- sub("datapackage.json$", "", path)
   root <- sub("/$", "", root)
