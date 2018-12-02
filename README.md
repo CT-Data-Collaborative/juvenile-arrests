@@ -2,6 +2,13 @@ Juvenile Arrests
 
 [![Build Status](https://travis-ci.org/CT-Data-Collaborative/juvenile-arrests.svg?branch=master)](https://travis-ci.org/CT-Data-Collaborative/juvenile-arrests)
 
+# Adding a new Dataset # 
+Datasets required:
+	* Uniform Crime Reporting Statistics
+	* Table B01001 (Sex by Age) for the same year, 5Y estimates
+
+Note: Uniform Crime Reporting Statistics for 2017 relies on sex by age population data from 5Y estimate from 2016.
+
 Juvenile Arrests reports the number and rate of arrests for juveniles under the age of 18, per type of crime.
 
 Data Source: <https://data.ct.gov/Public-Safety/Uniform-Crime-Reporting-System-Arrests-2015/r6vz-twt4>
