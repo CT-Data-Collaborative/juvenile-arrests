@@ -67,6 +67,7 @@ indicators <- c("Hartford", "Windham", "Tolland", "New London", "New Haven", "Li
 test <- test[!(test$Year %in% years & test$Indicator %in% indicators),]
 
 test$Indicator[test$Indicator == "CT"] <- "Connecticut"
+test$Indicator[test$Indicator == "Connecticut Total"] <- "Connecticut"
 test$Indicator <- gsub(" CSP", "", test$Indicator)
 test$Indicator <- gsub(" PD", "", test$Indicator)
 
