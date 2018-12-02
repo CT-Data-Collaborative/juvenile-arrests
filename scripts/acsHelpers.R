@@ -82,6 +82,7 @@ divide.acs <- function(num, den, method = "ratio", verbose = T) {
 getACSData <- function(geoObject, yearList, table) {
     data.list <- list()
     for (y in yearList) {
+        if (y == 2017){y=2016;}
         print(paste("Processing ACS year\n", y, sep=": "))
         # check if file exists for given year/table
         filename <- paste("ACS", (as.numeric(y)-2000), "5YR", table, "with", "ann.csv", sep = "_")

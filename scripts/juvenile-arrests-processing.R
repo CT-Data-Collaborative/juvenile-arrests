@@ -6,7 +6,7 @@ library(tidyr)
 # Processing Script for Juvenile Arrests
 # Created by Jenna Daly
 # On 08/09/2017
-# Updated on 10/22/2018
+# Updated on 11/24/2018
 #
 ##################################################################
 
@@ -110,17 +110,17 @@ test_fips <- test_fips %>%
 test_fips <- unique(test_fips)
 
 #Create CT total for 2016
-CT_2016 <- test_fips[test_fips$Year == "2016",]
+CT_2017 <- test_fips[test_fips$Year == "2017",]
 
-CT_2016 <- CT_2016 %>% 
+CT_2017 <- CT_2017 %>% 
   group_by(Crime, `Age Range`) %>% 
   summarise(Value = sum(Value))
 
-CT_2016$Town <- "Connecticut"
-CT_2016$FIPS <- "09"
-CT_2016$Year <- 2016
+CT_2017$Town <- "Connecticut"
+CT_2017$FIPS <- "09"
+CT_2017$Year <- 2017
 
-test_fips <- rbind(test_fips, CT_2016)
+test_fips <- rbind(test_fips, CT_2017)
 
 #####################################################################################
 test_totals <- test_fips
@@ -227,7 +227,7 @@ juv_arrests_total <- juv_arrests_total %>%
 # Write to File
 write.table(
   juv_arrests_total,
-  file.path(getwd(), "data", "juvenile-arrests_2016.csv"),
+  file.path(getwd(), "data", "juvenile-arrests_2017.csv"),
   sep = ",",
   row.names = F,
   na = "-9999"

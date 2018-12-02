@@ -1,11 +1,11 @@
 library(acs)
-source('~/juvenile-arrests/scripts/acsHelpers.R')
+source('./scripts/acsHelpers.R')
 
 # ACS B01001
 # Get geography object for CT and subcounty divisions
 acsdata <- getACSData(
     getCTGeos("town"),
-    yearList = 2010:2016,
+    yearList = 2010:2017,
     table = "B01001"
 )
 
